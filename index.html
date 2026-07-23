@@ -106,20 +106,19 @@
     <h1>採用モニタリング 週次レポート</h1>
     <div class="meta">
       <span><b>対象:</b> IS／CO在宅コールスタッフ採用</span>
-      <span><b>集計期間:</b> 当月 6/27〜7/17（週次は直近13週）</span>
+      <span><b>集計期間:</b> 週次=直近13週(2026/4/20〜7/13)／ファネル①・Airwork⑨=当月6/27〜7/17</span>
       <span><b>基準日:</b> 2026/07/17</span>
       <span><b>データ元:</b> 採用モニタリングSheet ／ Airwork掲載</span>
     </div>
     <div class="legend-bar">
-      <span class="lg"><span class="badge b-real">実データ</span>Sheetの集計値をそのまま表示</span>
-      <span class="lg"><span class="badge b-ref">参考推計</span>デモ用の補完値（本番で実データ接続）</span>
+      <span class="lg"><span class="badge b-real">実データ</span>元シート（応募明細）＋Airwork ATSの実数を集計</span>
     </div>
   </header>
 
   <!-- ① 各プロセスの推移 -->
   <section>
     <div class="sec-h"><span class="sec-num">①</span><h2>各プロセスの推移（採用ファネル）</h2><span class="badge b-real">実データ</span></div>
-    <p class="sec-sub">応募 → 書類通過 → 面接設定 → 面接実施 → 採用 → 契約 → 研修 → 稼働（実績／目標／進捗率）</p>
+    <p class="sec-sub">応募 → 書類通過 → 面接設定 → 面接実施 → 採用 → 契約 → 研修 → 稼働（各カード: 実績／目標／現時点目標／進捗率）　※進捗率 = 実績 ÷ 現時点目標</p>
     <div class="funnel" id="funnel"></div>
     <div class="kpis">
       <div class="kpi"><div class="k">応募（対 現時点目標）</div><div class="v">294</div><div class="d up">▲ 109.2%（目標269）</div></div>
@@ -134,9 +133,9 @@
   <!-- ② 応募 週次推移 -->
   <section>
     <div class="sec-h"><span class="sec-num">②</span><h2>応募数の週次推移（直近13週）</h2></div>
-    <p class="sec-sub">週次の応募件数。<span class="badge b-real">実データ</span> 5/5〜7/14の主要週 ／ <span class="badge b-ref">参考推計</span> 4/21・4/28</p>
+    <p class="sec-sub">週次の応募件数（応募日ベース・全13週 実データ）。棒＝経路別、折れ線＝合計。</p>
     <div class="chart-box"><canvas id="chApp"></canvas></div>
-    <div class="note">応募は7月に入り増加基調（6/30週 94 → 7/7週 97 → 7/14週 103）。6/16週にAirworkが94件と突出。</div>
+    <div class="note">応募は増加基調で直近 7/13週は122件（13週で最多）。Airworkが 6/22週以降 85→78→86→96 と伸長。<b>マイナビバイトが直近週に15件と新規流入</b>。</div>
   </section>
 
   <!-- ③ 応募 経路別内訳 -->
@@ -153,26 +152,26 @@
         </table>
       </div>
     </div>
-    <div class="note">累計応募600件のうち <b>Airwork 410件（68.3%）</b> が主力。求人ボックス114件（19.0%）が続く。indeedは有料枠縮小で足元は僅少。</div>
+    <div class="note">直近13週の応募1,083件のうち <b>Airwork 814件（75.2%）</b> が主力、求人ボックス241件（22.3%）が続く。<b>マイナビバイトは新規追加</b>で直近週から15件が流入し始めている。</div>
   </section>
 
   <!-- ④ 面接 週次推移 -->
   <section>
     <div class="sec-h"><span class="sec-num">④</span><h2>面接実施数の週次推移（直近13週）</h2></div>
-    <p class="sec-sub"><span class="badge b-real">実データ</span> 6/30〜7/14週（当月 面接実施 計121件） ／ <span class="badge b-ref">参考推計</span> それ以前</p>
+    <p class="sec-sub">週次の面接実施件数（面接日ベース・全13週 実データ）。破線＝週目標(37)。</p>
     <div class="chart-box"><canvas id="chItv"></canvas></div>
-    <div class="note">当月の面接実施は目標超過（115.2%）。一方で <b>不参加（ドタキャン）22.7%</b> が着席率を圧迫。</div>
+    <div class="note">面接実施は 7/6週の46件がピーク。当月の面接実施は目標超過（115.2%）だが、<b>不参加（ドタキャン）22.7%</b> が着席率を圧迫。</div>
   </section>
 
   <!-- ⑤ 面接 経路別内訳 -->
   <section>
-    <div class="sec-h"><span class="sec-num">⑤</span><h2>面接数の経路別内訳</h2><span class="badge b-ref">参考推計</span></div>
-    <p class="sec-sub">経路×面接日の実データ集計は本番で接続。デモは応募経路構成をベースに推計</p>
+    <div class="sec-h"><span class="sec-num">⑤</span><h2>面接数の経路別内訳</h2><span class="badge b-real">実データ</span></div>
+    <p class="sec-sub">面接日×媒体で集計（直近13週）</p>
     <div class="grid2">
       <div class="chart-box sm"><canvas id="chItvDonut"></canvas></div>
       <div>
         <table class="mini">
-          <thead><tr><th>経路</th><th>面接実施(推計)</th><th>構成比</th></tr></thead>
+          <thead><tr><th>経路</th><th>面接実施</th><th>構成比</th></tr></thead>
           <tbody id="itvTbl"></tbody>
         </table>
         <div class="note" style="margin-top:12px">面接結果傾向（実データ・110件）：採用 32（29.1%）／不参加 25（22.7%）／辞退 11（10.0%）／不合格ほか 42（38.2%）。</div>
@@ -183,15 +182,15 @@
   <!-- ⑥ 採用 週次推移 -->
   <section>
     <div class="sec-h"><span class="sec-num">⑥</span><h2>採用数の週次推移（直近13週）</h2></div>
-    <p class="sec-sub"><span class="badge b-real">実データ</span> 6/30〜7/14週（採用確定 計32件） ／ <span class="badge b-ref">参考推計</span> それ以前</p>
+    <p class="sec-sub">週次の採用確定件数（採用確定日ベース・全13週 実データ）。破線＝週目標(4.5)。</p>
     <div class="chart-box"><canvas id="chHire"></canvas></div>
-    <div class="note">7/7週に採用16件と集中。研修完了（稼働）はまだ0で、パイプライン後半に遅延。</div>
+    <div class="note">採用は 7/6週の15件がピーク。直近13週で計110名を確定。研修完了（稼働）はまだ0で、パイプライン後半に遅延。</div>
   </section>
 
   <!-- ⑦ 採用 経路別内訳 -->
   <section>
-    <div class="sec-h"><span class="sec-num">⑦</span><h2>採用数の経路別内訳</h2><span class="badge b-ref">参考推計</span></div>
-    <p class="sec-sub">ランク別プロセス（実データ）＋ 経路別推計</p>
+    <div class="sec-h"><span class="sec-num">⑦</span><h2>採用数の経路別内訳</h2><span class="badge b-real">実データ</span></div>
+    <p class="sec-sub">採用確定日×媒体で集計（直近13週）＋ ランク別プロセス（当月）</p>
     <div class="grid2">
       <div class="chart-box sm"><canvas id="chHireDonut"></canvas></div>
       <div>
@@ -242,6 +241,16 @@
       <div class="cpacard"><div class="cl">採用単価</div><div class="cv">¥16,875</div></div>
     </div>
     <div class="note">掲載費用 ¥540,000（全体）に対する各単価。クリック率 <b>6.14%</b>（目標5.10%超過）と入口は良好、閲覧数は目標比69.2%でやや不足。</div>
+
+    <div style="margin-top:20px">
+      <div class="sec-h" style="margin-bottom:2px"><h2 style="font-size:15px">原稿別 実績（Airwork）</h2><span class="badge b-real">実データ</span></div>
+      <p class="sec-sub" style="margin-left:0">Airwork管理画面（ats.rct.airwork.net）の求人（原稿）ごとの応募実績（掲載開始〜現在の累計）。</p>
+      <table class="mini">
+        <thead><tr><th>原稿（求人番号・タイトル）</th><th>掲載状況</th><th>応募数（累計）</th><th>構成比</th></tr></thead>
+        <tbody id="genkoTbl"></tbody>
+      </table>
+      <div class="note">応募数は「掲載中」4件＋過去掲載「未掲載」4件の累計。<b>掲載中の主力は 172／153／136 の3原稿</b>。過去原稿では「未経験OK｜副業OK（235）」「フルリモート×接客（180）」が高応募。※原稿ごとの<b>閲覧・クリック・応募CPA</b>は、Airworkの原稿別レポート（ジョブブースト）でのみ取得可能なため、当欄では全体値（上段の閲覧142,891／CPA¥1,837等）を参照。</div>
+    </div>
   </section>
 
   <!-- ⑩ Airwork 示唆コメント -->
@@ -256,11 +265,11 @@
     </div>
   </section>
 
-  <div class="demo-flag">
-    <b>これはデモ版です。</b> ①③⑨⑩と面接結果・ランク別は貴社Sheetの<b>実データ</b>です。②④⑥の週次推移は主要週が実データ、一部の週（および⑤⑦の経路別）は本番で「応募日・面接日・採用日 × 媒体」を集計して自動化します。フォーマット確定後、毎週自動更新できる形に仕上げます。
+  <div class="demo-flag" style="background:#ecfdf3;border-color:#bbf7d0;color:#166534">
+    <b>全セクション実データ版。</b> ②〜⑦は「ver2 マケ応募管理シート」の明細（応募日・面接日・採用確定日 × 媒体、直近13週）を集計。①ファネル・⑨Airwork歩留まり/CPAは当月コックピット値、⑨原稿別はAirwork ATSの応募実績。毎週金曜9時に自動更新されます。※⑨原稿別の閲覧・クリック・CPAはAirworkの原稿別レポートでのみ取得可（現状は全体値を参照）。
   </div>
 
-  <footer>採用モニタリング週次レポート（デモ）｜株式会社CTF GROUP｜生成: 2026/07/17</footer>
+  <footer>採用モニタリング週次レポート｜株式会社CTF GROUP｜基準日: 2026/07/17</footer>
 </div>
 
 <script>
@@ -280,15 +289,16 @@ const fun=[
 ];
 const fc=document.getElementById('funnel');
 fun.forEach((s,i)=>{
-  const col=s.prog>=100?'#dcfce7':(s.prog>=60?'#fef3c7':'#fee2e2');
-  const tx=s.prog>=100?'#166534':(s.prog>=60?'#92400e':'#b91c1c');
+  const p=s.now? +(s.act/s.now*100).toFixed(1):0;      // 進捗率 = 実績 ÷ 現時点目標
+  const col=p>=100?'#dcfce7':(p>=60?'#fef3c7':'#fee2e2');
+  const tx=p>=100?'#166534':(p>=60?'#92400e':'#b91c1c');
   fc.insertAdjacentHTML('beforeend',`
    <div class="fstep">
      <div class="fbar">
        <div class="fname">${s.n}</div>
        <div class="fact">${s.act}</div>
-       <div class="ftgt">目標 ${s.tgt}</div>
-       <div class="fprog" style="background:${col};color:${tx}">${s.prog}%</div>
+       <div class="ftgt">目標 ${s.tgt}<br><b style="color:#475569">現時点 ${s.now}</b></div>
+       <div class="fprog" style="background:${col};color:${tx}">${p}%</div>
      </div>
      ${i<fun.length-1?`<div class="arw">${fun[i+1].rate||''}</div>`:''}
    </div>`);
@@ -302,14 +312,14 @@ if(HAS_CHART){
 }
 function mkChart(id,cfg){ if(!HAS_CHART) return; try{ new Chart(document.getElementById(id),cfg);}catch(e){console.error('chart',id,e);} }
 
-const weeks=['4/21','4/28','5/5','5/12','5/19','5/26','6/2','6/9','6/16','6/23','6/30','7/7','7/14'];
+const weeks=['4/20','4/27','5/4','5/11','5/18','5/25','6/1','6/8','6/15','6/22','6/29','7/6','7/13'];
 
-/* ② 応募 週次（stacked 経路 = ③兼用の推移） */
-const appAir=[40,42,46,54,46,65,45,44,94,78,70,72,76];
-const appBox=[10,12,15,24,32,34,39,24,18,22,19,20,22];
-const appInd=[3,2,0,0,0,0,0,0,0,0,2,3,3];
-const appEtc=[2,2,2,3,3,2,3,2,2,2,3,2,2];
-const appTotal=weeks.map((_,i)=>appAir[i]+appBox[i]+appInd[i]+appEtc[i]);
+/* ② 応募 週次（stacked 経路 = ③兼用の推移）実データ 2026/4/20〜7/13 */
+const appAir=[55,53,43,44,53,54,56,46,65,85,78,86,96];
+const appBox=[0,0,7,22,28,27,43,27,29,18,20,11,9];
+const appMyn=[0,0,0,0,0,0,0,0,0,0,0,0,15];
+const appEtc=[3,1,2,3,1,1,0,0,0,0,0,0,2];
+const appTotal=weeks.map((_,i)=>appAir[i]+appBox[i]+appMyn[i]+appEtc[i]);
 
 mkChart('chApp',{
  type:'bar',
@@ -317,7 +327,7 @@ mkChart('chApp',{
    {type:'line',label:'応募 合計',data:appTotal,borderColor:C.act,backgroundColor:C.act,tension:.3,borderWidth:3,pointRadius:4,pointBackgroundColor:'#fff',pointBorderWidth:2,order:0},
    {label:'Airwork',data:appAir,backgroundColor:C.air,stack:'s',order:1},
    {label:'求人ボックス',data:appBox,backgroundColor:C.box,stack:'s',order:1},
-   {label:'indeed',data:appInd,backgroundColor:C.indeed,stack:'s',order:1},
+   {label:'マイナビバイト',data:appMyn,backgroundColor:C.indeed,stack:'s',order:1},
    {label:'その他',data:appEtc,backgroundColor:C.etc,stack:'s',order:1},
  ]},
  options:{responsive:true,maintainAspectRatio:false,
@@ -328,34 +338,35 @@ mkChart('chApp',{
 /* ③ 応募 経路 stacked (再掲・詳細) */
 mkChart('chAppStack',{
  type:'bar',
- data:{labels:weeks.slice(2,10),datasets:[
-   {label:'Airwork',data:appAir.slice(2,10),backgroundColor:C.air,stack:'s'},
-   {label:'求人ボックス',data:appBox.slice(2,10),backgroundColor:C.box,stack:'s'},
-   {label:'indeed',data:appInd.slice(2,10),backgroundColor:C.indeed,stack:'s'},
+ data:{labels:weeks,datasets:[
+   {label:'Airwork',data:appAir,backgroundColor:C.air,stack:'s'},
+   {label:'求人ボックス',data:appBox,backgroundColor:C.box,stack:'s'},
+   {label:'マイナビバイト',data:appMyn,backgroundColor:C.indeed,stack:'s'},
+   {label:'その他',data:appEtc,backgroundColor:C.etc,stack:'s'},
  ]},
  options:{responsive:true,maintainAspectRatio:false,
-   plugins:{legend:{position:'bottom'},title:{display:true,text:'週次 経路別（実データ 5/5〜6/23）'}},
+   plugins:{legend:{position:'bottom'},title:{display:true,text:'週次 経路別（直近13週・実データ）'}},
    scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,beginAtZero:true}}}
 });
 
 /* ③ donut 累計経路 */
-const appCh=[['Airwork',410,C.air],['求人ボックス',114,C.box],['indeed',59,C.indeed],['クラウドワークス',12,C.cw],['その他(TEL/紹介)',5,C.etc]];
+const appCh=[['Airwork',814,C.air],['求人ボックス',241,C.box],['マイナビバイト',15,C.indeed],['その他',13,C.etc]];
 const appSum=appCh.reduce((a,b)=>a+b[1],0);
 mkChart('chAppDonut',{
  type:'doughnut',
  data:{labels:appCh.map(x=>x[0]),datasets:[{data:appCh.map(x=>x[1]),backgroundColor:appCh.map(x=>x[2]),borderWidth:2,borderColor:'#fff'}]},
  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'累計応募 経路構成（600件）'}}}
+   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'応募 経路構成（直近13週）'}}}
 });
 document.getElementById('appTbl').innerHTML=appCh.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${(x[1]/appSum*100).toFixed(1)}%</td></tr>`).join('')+`<tr style="font-weight:700"><td>合計</td><td>${appSum}</td><td>100%</td></tr>`;
 
 /* ④ 面接 週次 */
-const itv=[22,25,28,30,32,35,30,33,38,40,36,46,39];
+const itv=[23,12,12,32,26,26,34,28,40,37,36,46,41];
 mkChart('chItv',{
  type:'bar',
  data:{labels:weeks,datasets:[
    {type:'line',label:'目標(週)',data:weeks.map(()=>37),borderColor:C.tgt,borderDash:[5,4],borderWidth:2,pointRadius:0,tension:0},
-   {label:'面接実施',data:itv,backgroundColor:weeks.map((_,i)=>i>=10?C.act:'#93c5fd'),borderRadius:5},
+   {label:'面接実施',data:itv,backgroundColor:'#60a5fa',borderRadius:5},
  ]},
  options:{responsive:true,maintainAspectRatio:false,
    plugins:{legend:{position:'bottom'}},
@@ -363,23 +374,23 @@ mkChart('chItv',{
 });
 
 /* ⑤ 面接 経路 donut (推計) */
-const itvCh=[['Airwork',68,C.air],['求人ボックス',28,C.box],['indeed',15,C.indeed],['その他',10,C.etc]];
+const itvCh=[['Airwork',313,C.air],['求人ボックス',68,C.box],['その他',12,C.etc]];
 const itvSum=itvCh.reduce((a,b)=>a+b[1],0);
 mkChart('chItvDonut',{
  type:'doughnut',
  data:{labels:itvCh.map(x=>x[0]),datasets:[{data:itvCh.map(x=>x[1]),backgroundColor:itvCh.map(x=>x[2]),borderWidth:2,borderColor:'#fff'}]},
  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'面接 経路構成（推計）'}}}
+   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'面接 経路構成（直近13週）'}}}
 });
 document.getElementById('itvTbl').innerHTML=itvCh.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${(x[1]/itvSum*100).toFixed(1)}%</td></tr>`).join('')+`<tr style="font-weight:700"><td>合計</td><td>${itvSum}</td><td>100%</td></tr>`;
 
 /* ⑥ 採用 週次 */
-const hire=[3,4,5,6,5,7,6,5,8,7,9,16,7];
+const hire=[4,3,3,6,9,9,7,7,12,14,10,15,11];
 mkChart('chHire',{
  type:'bar',
  data:{labels:weeks,datasets:[
    {type:'line',label:'目標(週)',data:weeks.map(()=>18/4),borderColor:C.tgt,borderDash:[5,4],borderWidth:2,pointRadius:0,tension:0,label:'週目標(4.5)'},
-   {label:'採用確定',data:hire,backgroundColor:weeks.map((_,i)=>i>=10?'#15803d':'#86efac'),borderRadius:5},
+   {label:'採用確定',data:hire,backgroundColor:'#4ade80',borderRadius:5},
  ]},
  options:{responsive:true,maintainAspectRatio:false,
    plugins:{legend:{position:'bottom'}},
@@ -387,12 +398,12 @@ mkChart('chHire',{
 });
 
 /* ⑦ 採用 経路 donut + rank table */
-const hireCh=[['Airwork',20,C.air],['求人ボックス',7,C.box],['indeed',3,C.indeed],['その他',2,C.etc]];
+const hireCh=[['Airwork',96,C.air],['求人ボックス',10,C.box],['その他',4,C.etc]];
 mkChart('chHireDonut',{
  type:'doughnut',
  data:{labels:hireCh.map(x=>x[0]),datasets:[{data:hireCh.map(x=>x[1]),backgroundColor:hireCh.map(x=>x[2]),borderWidth:2,borderColor:'#fff'}]},
  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',
-   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'採用 経路構成（推計・計32）'}}}
+   plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10.5}}},title:{display:true,text:'採用 経路構成（直近13週 計110）'}}}
 });
 const rank=[['A（即戦力）','0','0%'],['B（良好）','15','面接16→採用15'],['C（見習い枠）','10','面接11→採用10'],['C（ボーダー）','0','—'],['D（不適）','0','—']];
 document.getElementById('rankTbl').innerHTML=rank.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td style="font-size:11px;color:#64748b">${x[2]}</td></tr>`).join('');
@@ -408,6 +419,20 @@ const aw=[
  {n:'採用',v:'8',r:'14.6%'},
 ];
 document.getElementById('awFunnel').innerHTML=aw.map(s=>`<div class="awstep"><div class="an">${s.n}</div><div class="av">${s.v}</div><div class="ar">${s.r}</div></div>`).join('');
+
+/* ⑨ 原稿別（Airwork）実データ：応募数（掲載開始〜現在の累計） */
+const genko=[
+ ['[11711778] コール・営業経験歓迎｜在宅テレアポ｜高収入','掲載中',172],
+ ['[11711602] 副業OK｜未経験OK在宅テレアポ｜月5万円〜UP','掲載中',153],
+ ['[11711645] 接客・会話スキル活かせる｜未経験OK在宅テレアポ','掲載中',136],
+ ['[10696639] 未経験OK｜副業OK在宅テレアポ｜月5万円〜UP','未掲載',235],
+ ['[10696649] フルリモート×接客スキル｜幅広い年代活躍','未掲載',180],
+ ['[10658588] テレアポできるかっこいいママ必見｜フルリモート','未掲載',85],
+ ['[10696652] 法人向けインバウンドセールス｜最高時給4,000円','未掲載',53],
+ ['[10764511] 人脈で稼ぐ｜紹介1件3万円パートナー','掲載中',0],
+];
+const gsum=genko.reduce((a,b)=>a+b[2],0);
+document.getElementById('genkoTbl').innerHTML=genko.map(r=>`<tr><td style="text-align:left">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${(r[2]/gsum*100).toFixed(1)}%</td></tr>`).join('')+`<tr style="font-weight:700"><td style="text-align:left">合計</td><td>—</td><td>${gsum}</td><td>100%</td></tr>`;
 </script>
 </body>
 </html>
