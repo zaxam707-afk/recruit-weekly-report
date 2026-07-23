@@ -244,12 +244,12 @@
 
     <div style="margin-top:20px">
       <div class="sec-h" style="margin-bottom:2px"><h2 style="font-size:15px">原稿別 実績（Airwork）</h2><span class="badge b-real">実データ</span></div>
-      <p class="sec-sub" style="margin-left:0">Airwork管理画面（ats.rct.airwork.net）の求人（原稿）ごとの応募実績（掲載開始〜現在の累計）。</p>
-      <table class="mini">
-        <thead><tr><th>原稿（求人番号・タイトル）</th><th>掲載状況</th><th>応募数（累計）</th><th>構成比</th></tr></thead>
+      <p class="sec-sub" style="margin-left:0">Airwork有料広告（ジョブブースト）の原稿別実績（各広告の掲載期間累計）：閲覧→クリック→応募 の歩留まりと応募CPA・費用。</p>
+      <table class="mini" style="font-size:11px">
+        <thead><tr><th>原稿（広告）</th><th>状況</th><th>閲覧</th><th>クリック</th><th>CTR</th><th>応募</th><th>応募率</th><th>応募CPA</th><th>費用</th></tr></thead>
         <tbody id="genkoTbl"></tbody>
       </table>
-      <div class="note">応募数は「掲載中」4件＋過去掲載「未掲載」4件の累計。<b>掲載中の主力は 172／153／136 の3原稿</b>。過去原稿では「未経験OK｜副業OK（235）」「フルリモート×接客（180）」が高応募。※原稿ごとの<b>閲覧・クリック・応募CPA</b>は、Airworkの原稿別レポート（ジョブブースト）でのみ取得可能なため、当欄では全体値（上段の閲覧142,891／CPA¥1,837等）を参照。</div>
+      <div class="note">応募CPAは <b>「副業OK｜月5万円〜UP」¥978</b> と <b>「完全在宅×未経験OK」¥830</b> が良好。逆に <b>「アウトバウンド｜経験者」¥2,771</b> は割高（CTR1.9%と入口が弱い）。表示数最大は「副業OK在宅｜月5〜10万上乗せ」288,501。※上段⑨は当月コックピット値、本表は各広告の掲載期間累計のため数値レンジが異なります。</div>
     </div>
   </section>
 
@@ -420,19 +420,17 @@ const aw=[
 ];
 document.getElementById('awFunnel').innerHTML=aw.map(s=>`<div class="awstep"><div class="an">${s.n}</div><div class="av">${s.v}</div><div class="ar">${s.r}</div></div>`).join('');
 
-/* ⑨ 原稿別（Airwork）実データ：応募数（掲載開始〜現在の累計） */
+/* ⑨ 原稿別（Airwork有料広告/ジョブブースト）実データ：閲覧・クリック・応募・CPA・費用 */
 const genko=[
- ['[11711778] コール・営業経験歓迎｜在宅テレアポ｜高収入','掲載中',172],
- ['[11711602] 副業OK｜未経験OK在宅テレアポ｜月5万円〜UP','掲載中',153],
- ['[11711645] 接客・会話スキル活かせる｜未経験OK在宅テレアポ','掲載中',136],
- ['[10696639] 未経験OK｜副業OK在宅テレアポ｜月5万円〜UP','未掲載',235],
- ['[10696649] フルリモート×接客スキル｜幅広い年代活躍','未掲載',180],
- ['[10658588] テレアポできるかっこいいママ必見｜フルリモート','未掲載',85],
- ['[10696652] 法人向けインバウンドセールス｜最高時給4,000円','未掲載',53],
- ['[10764511] 人脈で稼ぐ｜紹介1件3万円パートナー','掲載中',0],
+ ['[2442978] 営業経験者歓迎｜高収入','配信中','101,932','3,165','3.11%','163','5.15%','¥1,067','¥173,848'],
+ ['[2442947] 副業OK｜月5万円〜UP','配信中','141,550','6,816','4.82%','146','2.14%','¥978','¥142,786'],
+ ['[2442963] 接客・会話スキル活かせる','配信中','134,812','4,147','3.08%','131','3.16%','¥1,320','¥172,899'],
+ ['[2192630] 副業OK在宅｜月5〜10万円上乗せ','終了','288,501','13,106','4.54%','230','1.75%','¥1,075','¥247,214'],
+ ['[2192629] コールセンター｜接客販売スキル','終了','87,355','3,633','4.16%','171','4.71%','¥1,391','¥237,803'],
+ ['[2192631] 完全在宅×未経験OK｜オペレーター','終了','100,003','4,114','4.11%','82','1.99%','¥830','¥68,087'],
+ ['[2192626] アウトバウンドコール｜経験者','終了','73,006','1,386','1.90%','51','3.68%','¥2,771','¥141,317'],
 ];
-const gsum=genko.reduce((a,b)=>a+b[2],0);
-document.getElementById('genkoTbl').innerHTML=genko.map(r=>`<tr><td style="text-align:left">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${(r[2]/gsum*100).toFixed(1)}%</td></tr>`).join('')+`<tr style="font-weight:700"><td style="text-align:left">合計</td><td>—</td><td>${gsum}</td><td>100%</td></tr>`;
+document.getElementById('genkoTbl').innerHTML=genko.map(r=>`<tr><td style="text-align:left">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6]}</td><td><b>${r[7]}</b></td><td>${r[8]}</td></tr>`).join('')+`<tr style="font-weight:700;background:#f8fafc"><td style="text-align:left">合計 / 平均</td><td>—</td><td>927,159</td><td>36,367</td><td>3.92%</td><td>974</td><td>2.68%</td><td>¥1,216</td><td>¥1,183,954</td></tr>`;
 </script>
 </body>
 </html>
